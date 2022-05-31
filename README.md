@@ -29,7 +29,9 @@ This REST service is built on Java with the Spring Boot Framework
 - Content-type: application/json
     - Accepts:
       ```json
-      {"username": $username,"password": $password,"email": $email}
+      {"username": $username,
+       "password": $password,
+       "email": $email}
     - Returns:
         - body:
           ```json
@@ -44,7 +46,8 @@ This REST service is built on Java with the Spring Boot Framework
     - Returns:
         - body:
           ```json
-          {"username": $username, "email": $email}
+          {"username": $username,
+           "email": $email}
 
 ``PATCH`` Updates user credentials
 
@@ -55,7 +58,8 @@ This REST service is built on Java with the Spring Boot Framework
     - Returns:
         - Body:
           ```json
-          {"username": $new_username, "email": $new_email}
+          {"username": $new_username,
+           "email": $new_email}
 
 ``DELETE`` Deletes the user
 
@@ -80,7 +84,9 @@ This REST service is built on Java with the Spring Boot Framework
         - URI: Returns the URI to access the created resource
         - Body:
           ```json
-          {"username": $username,"email": $email,  "account": {"name": $name}}
+          {"username": $username,
+           "email": $email,
+           "account": {"name": $name}}
 
 ``GET`` Gets all the accounts
 
@@ -90,7 +96,13 @@ This REST service is built on Java with the Spring Boot Framework
     - Returns:
         - Body:
         ```json
-        {"username": $username,"email": $email,  "account": [{"name": $account_name1},{"name": $account_name2}]}
+        {"username": $username,
+         "email": $email,  
+         "account": [
+                     {"name": $account_name1} ,
+                     {"name": $account_name2}
+                    ]
+         }
 
 ``PATCH`` /users/accounts/{$account_name} Updates the account
 
@@ -120,7 +132,8 @@ Deletes the account
 - Content-type: application/json
     - Accepts:
       ```json
-      {"amount": $amount,"description": $description}
+      {"amount": $amount,
+       "description": $description}
 
     - Requires:
         - Headers:
@@ -129,7 +142,11 @@ Deletes the account
         - URI: Returns the URI to access the created resource
         - Body:
           ```json
-          {"id": $id, "amount": $amount, "description": $description, "date": $current_ISO_date}
+          {"id": $id, 
+          "amount": $amount, 
+          "description": $description, 
+          "date": $current_ISO_date
+          }
 
 ``PATCH``/users/accounts/{$account_name}/transaction/{$id}
 
@@ -142,7 +159,10 @@ Updates the transaction by id
     - Returns:
         - Body:
           ```json
-          {"id": $id, "amount": $new_amount, "description": $new_description, "date": $new_ISO_date}
+          {"id": $id, 
+          "amount": $new_amount, 
+          "description": $new_description, 
+          "date": $new_ISO_date}
 
 ``DELETE`` /users/accounts/{$account_name}/transaction/{$id}
 
@@ -167,8 +187,14 @@ dates ``$from - $to``.
         - body:
           ```json
           {"account":
-             {"name": $account_name ,
-              "transactions": [{"id": $id, "amount": $amount, "description": $description, "date": ISO_date}]},
+             {"name": $account_name,
+              "transactions": [
+                                {"id": $id, 
+                                 "amount": $amount,
+                                 "description": $description,
+                                 "date": ISO_date}
+                                 ]
+             },
           "totalElements": $totalElements,
           "totalPages": $totalPages,
           "page": $page,
