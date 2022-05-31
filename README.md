@@ -15,7 +15,8 @@ This REST service is built on Java with the Spring Boot Framework
 - Content-type: application/json
     - Accepts:
       ```json
-      {"username": $username,"password": $password}
+      {"username": $username,
+       "password": $password }
     - Returns:
         - Headers:
             - Authorization: Contains the JWT to authenticate
